@@ -1,7 +1,7 @@
 # PluginChoucas
 
-Ce plug-in a été développé pour le logiciel QGis, dans le cadre d’un projet en collaboration  avec le Peloton de Gendarmerie de Haute-Montagne(PGHM) de Grenoble, l’université de Pau, et l’université de Grenoble, dont le but est l'aide à la localisation de victimes en montagne. Projet co-financé par l'ANR.
-Ce plug-in permet de faciliter l'accès et la visualisation de données de type point (refuges, plans d’eau...) et de type ligne (itinéraires de randonnée), provenant essentiellement de sites collaboratifs (camptocamp.org, refugesinfo...). Il s’agit d’exploiter les fichiers JSON retournés par leur API respective pour afficher les données sous QGis. 
+Ce plug-in a été développé pour le logiciel QGis, au cours d'un stage de développement informatique à l'ENSG (http://ensg.eu). Il s'intègre plus globalement dans le cadre d’un projet ANR, en collaboration  avec le Peloton de Gendarmerie de Haute-Montagne (PGHM) de Grenoble, l’université de Pau, et l’université de Grenoble, dont le but est l'aide à la localisation de victimes en montagne. 
+Le but de ce plug-in est de faciliter l'accès et la visualisation de données de type point (refuges, plans d’eau...) et de type ligne (itinéraires de randonnée), provenant essentiellement de sites collaboratifs (camptocamp.org, refugesinfo...). Il s’agit d’exploiter les fichiers JSON retournés par leur API respective pour afficher les données sous QGis. 
 Un mode Hors-Ligne est aussi disponible, mais nécessite une base de données.
 
 Auteurs
@@ -89,6 +89,9 @@ L’ajout d’une nouvelle source de données à visualiser lors du mode « en ligne » 
 La solution envisageable que nous n’avons pas eu le temps d’implémenter serait de définir qu’une seule balise « attribut » dans le catalogue pour chaque source de données et de placer à l’intérieur de cette même et unique balise l’ensemble des attributs nécessaire à la visualisation des données.
 
 Toutefois, dans l’état actuel du code python, l’ajout d’une nouvelle source de données au catalogue est possible. Il faut suivre le schéma des sources de données déjà complétées dans le catalogue, en indiquant le nom de chacun des attributs spécifique à la source ainsi qu’au différents types de données (type : points ou lignes etc…).
+
+![Description des blocs du catalogue](https://github.com/ANRChoucas/PluginChoucas/tree/master/doc/Catalogue.png)
+
 
 Installation
 ----
