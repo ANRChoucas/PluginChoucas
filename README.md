@@ -1,7 +1,9 @@
 # PluginChoucas
 
 Ce plug-in a été développé pour le logiciel QGis, au cours d'un stage de développement informatique à l'ENSG (http://ensg.eu). Il s'intègre plus globalement dans le cadre d’un projet ANR, en collaboration  avec le Peloton de Gendarmerie de Haute-Montagne (PGHM) de Grenoble, l’université de Pau, et l’université de Grenoble, dont le but est l'aide à la localisation de victimes en montagne. 
+
 Le but de ce plug-in est de faciliter l'accès et la visualisation de données de type point (refuges, plans d’eau...) et de type ligne (itinéraires de randonnée), provenant essentiellement de sites collaboratifs (camptocamp.org, refugesinfo...). Il s’agit d’exploiter les fichiers JSON retournés par leur API respective pour afficher les données sous QGis. 
+
 Un mode Hors-Ligne est aussi disponible, mais nécessite une base de données.
 
 Auteurs
