@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <source name="refuges.info">
+    <id>id</id>
+    <nom>nom</nom>
+    <lat>lat</lat>
+    <long>long</long>
+    <alt>alt</alt>
+    <bbox></bbox>
+    <couleur>blue</couleur>
+    <projection>epsg:4326</projection>
+    <type data-id="points d eau">
+      <geom>Point</geom>
+      <forme>circle</forme>
+      <svg>circular_shape</svg>
+      <size>2</size>
+      <table>pts_deau_refuges.info</table>
+    </type>
+    <type data-id="sommets">
+      <geom>Point</geom>
+      <forme>triangle</forme>
+      <param>summit</param>
+      <svg>mountain</svg>
+      <size>3</size>
+      <table>sommets_refuges.info</table>
+    </type>
+    <type data-id="points de passage">
+      <geom>Point</geom>
+      <forme>circle</forme>
+      <svg>map_mark</svg>
+      <size>3</size>
+      <table>pts_passage_refuges.info</table>
+    </type>
+    <type data-id="lacs">
+      <geom>Point</geom>
+      <forme>circle</forme>
+      <svg>sea</svg>
+      <size>2</size>
+      <table>lacs_refuges.info</table>
+    </type>
+  </source>
+  <source name="camptocamp">
+    <id>id</id>
+    <nom>nom</nom>
+    <lat>coord</lat>
+    <long>coord</long>
+    <alt>altitude</alt>
+    <bbox>bbox=4.5648,44.0846,6.8054,45.802</bbox>
+    <couleur>orange</couleur>
+    <projection>epsg:3857</projection>
+    <type data-id="refuges">
+      <geom>Point</geom>
+      <forme>square</forme>
+      <svg>home_full</svg>
+      <size>2</size>
+      <table>refuges_camptocamp</table>
+    </type>
+  </source>
+  <source name="IGN">
+    <bbox>bbox=4.5648,44.0846,6.8054,45.802</bbox>
+    <couleur>green</couleur>
+    <projection>epsg:2154</projection>
+    <type data-id="refuges">
+      <geom>Point</geom>
+      <forme>square</forme>
+      <svg>home_full</svg>
+      <size>2</size>
+      <table>refuges_IGN</table>
+    </type>
+    <type data-id="orographie">
+      <geom>Point</geom>
+      <forme>circle</forme>
+      <svg>circular_shape</svg>
+      <size>2</size>
+      <table>orographie_IGN</table>
+    </type>
+    <type data-id="calvaires">
+      <geom>Point</geom>
+      <forme>cross</forme>
+      <svg>catholicism</svg>
+      <size>3</size>
+      <table>calvaires_IGN</table>
+    </type>
+    <type data-id="parkings">
+      <geom>Point</geom>
+      <forme>rectangle</forme>
+      <svg>parking</svg>
+      <size>2</size>
+      <table>parkings_IGN</table>
+    </type>
+    <type data-id="routes">
+      <geom>LineString</geom>
+      <forme></forme>
+      <svg></svg>
+      <size>2</size>
+      <table>routes_IGN</table>
+    </type>
+    <type data-id="toponymes">
+      <geom>Point</geom>
+      <forme>circle</forme>
+      <svg>circular_shape</svg>
+      <size>2</size>
+      <table>toponymes_com_IGN</table>
+    </type>
+    <type data-id="lieux-dits habites">
+      <geom>Point</geom>
+      <forme>circle</forme>
+      <svg>houses</svg>
+      <size>2</size>
+      <table>lieux_dits_habit_IGN</table>
+    </type>
+    <type data-id="lieux-dits non habites">
+      <geom>Point</geom>
+      <forme>square</forme>
+      <svg>houses</svg>
+      <size>2</size>
+      <table>lieux_dits_non_habit_IGN</table>
+    </type>
+  </source>
+</data>
