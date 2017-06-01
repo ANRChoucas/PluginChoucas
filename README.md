@@ -6,12 +6,6 @@ Le but de ce plug-in est de faciliter l'accès et la visualisation de données de 
 
 Un mode Hors-Ligne est aussi disponible, mais nécessite une base de données.
 
-Auteurs
---------- 
-* Eva Chen-Yen-Su 
-* Sylvain Jourdan
-* Coline Hallier
-
 
 Gestion du catalogue
 -----
@@ -93,7 +87,7 @@ La solution envisageable que nous n’avons pas eu le temps d’implémenter serait d
 Toutefois, dans l’état actuel du code python, l’ajout d’une nouvelle source de données au catalogue est possible. Il faut suivre le schéma des sources de données déjà complétées dans le catalogue, en indiquant le nom de chacun des attributs spécifique à la source ainsi qu’au différents types de données (type : points ou lignes etc…).
 
 
-[![Description des blocs du catalogue](https://github.com/ANRChoucas/PluginChoucas/tree/master/doc/Catalogue.png)]
+![Description des blocs du catalogue](https://github.com/ANRChoucas/PluginChoucas/tree/master/doc/Catalogue.png)]
 
 
 Installation
@@ -107,13 +101,13 @@ Ce guide d’installation pour système d’exploitation Windows liste les différente
      C:\Users\username\.qgis2\python\plugins
 4) Lancer Qgis, dans l’onglet « Extension » / « «Installer/Gérer les extensions ». La fenêtre ci-dessous s’ouvre.
 
-Install_01.png
+![Afficher les extensions expérimentales](https://github.com/ANRChoucas/PluginChoucas/tree/master/doc/Install_01.png)]
 
 Dans le dernier onglet « Paramètres » s’assurer que la case « Afficher les extensions expérimentales » soit bien cochée
 
 5) Toujours sur cette même fenêtre, aller sous l’onglet « Toutes ». Taper dans la barre derecherche « choucas » et sélectionner l’extension comme sur la capture suivante.
 
-Install_02.png
+![Sélection du plug-in Choucas](https://github.com/ANRChoucas/PluginChoucas/tree/master/doc/Install_02.png)]
 
 6) Fermer la fenêtre « Extensions », sur le Desktop de QGis un nouveau symbole apparait. Cliquer dessus pour utiliser le plug-in CHOUCAS.
 
@@ -128,5 +122,12 @@ Sources des données :
 	* http://rando.ecrins-parcnational.fr/fr/
 
 
+Auteurs
+--------- 
+* Eva Chen-Yen-Su 
+* Sylvain Jourdan
+* Coline Hallier
 
+	
+	
 > Written with [StackEdit](https://stackedit.io/).
