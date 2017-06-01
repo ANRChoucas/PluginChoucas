@@ -179,7 +179,7 @@
     <string>Fond de carte :</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox">
+  <widget class="QCheckBox" name="cb_fondcarte">
    <property name="geometry">
     <rect>
      <x>110</x>
@@ -203,7 +203,7 @@
   <zorder>pushButton_add</zorder>
   <zorder>label_4</zorder>
   <zorder>label_5</zorder>
-  <zorder>checkBox</zorder>
+  <zorder>cb_fondcarte</zorder>
  </widget>
  <resources/>
  <connections/>

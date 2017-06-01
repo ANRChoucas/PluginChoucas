@@ -25,26 +25,15 @@
  ***************************************************************************/
 """
 from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication
-from PyQt4.QtCore import QVariant
 from PyQt4.QtGui import QAction, QIcon
 from PyQt4.QtGui import QMessageBox
 from qgis.core import QgsVectorLayer
 from qgis.core import QgsMapLayerRegistry
 
-# import pour le mode en ligne
-import json
-
-# import pour la connection a la bdd
-import db_manager.db_plugins.postgis.connector as con
-from PyQt4.QtSql import *
-#from QtSql import *
-#import psycopg2
-
 # Initialize Qt resources from file resources.py
 import resources
 
 # Import the code for the dialog
-#from plugin_choucas_dialog import PluginChoucasDialog
 from gui.plugin_choucas_dialog import PluginChoucasDialog
 
 import os.path
@@ -95,13 +84,6 @@ class PluginChoucas:
         # TODO: We are going to let the user set this up in a future iteration
         self.toolbar = self.iface.addToolBar(u'PluginChoucas')
         self.toolbar.setObjectName(u'PluginChoucas')
-
-        # On affiche un fond de carte de la France par défaut
-        uri = os.path.join(os.path.dirname(__file__) + str('/fond_de_carte/'),'France.shp')
-        vlayer = QgsVectorLayer(uri, "France", "ogr")
-        # symbol = QgsMarkerSymbolV2.createSimple({'name': '', 'color': 'land' })
-        # vlayer.rendererV2().setSymbol(symbol)
-        QgsMapLayerRegistry.instance().addMapLayer(vlayer)
 
         # On connecte les boutons [En ligne] et [Hors ligne] a la fonction permettant de remplir la 1ere comboBox (source)
         self.dlg.radioButton_online.toggled.connect(self.fill_comboBox)
@@ -217,6 +199,22 @@ class PluginChoucas:
         Fonction qui permet d afficher les donnees voulues 
         en fonction du mode choisi (en ligne ou hors ligne)
         """
+        
+        if self.dlg.cb_fondcarte.isChecked():
+            # On affiche un fond de carte de la France par défaut
+            # S'il n'est pas déjà afficher
+            estAffiche = False
+            for lyr in QgsMapLayerRegistry.instance().mapLayers().values():
+                if lyr.name() == "France":
+                    estAffiche = True
+                    break            
+            if not estAffiche :
+                uri = os.path.join(os.path.dirname(__file__) + str('/fond_de_carte/'),'France.shp')
+                vlayer = QgsVectorLayer(uri, "France", "ogr")
+                # symbol = QgsMarkerSymbolV2.createSimple({'name': '', 'color': 'land' })
+                # vlayer.rendererV2().setSymbol(symbol)
+                QgsMapLayerRegistry.instance().addMapLayer(vlayer)        
+        
         # On recupere le departement selectione
         selectedDeptIndex = self.dlg.comboBox_dept.currentIndex()
         selectedDept = self.list_dept[selectedDeptIndex]
@@ -247,8 +245,6 @@ class PluginChoucas:
         # Si le mode choisi est [Hors ligne]
         if self.dlg.radioButton_offline.isChecked():
              offline.offline(self.root, self.source, self.type_pt)
-
-
 
 
     def fill_comboBox(self):

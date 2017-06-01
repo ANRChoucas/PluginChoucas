@@ -151,7 +151,7 @@ def online(root, list_dept, dept, source, type_pt, list_bbox, list_admin_area):
                 #svgStyle['fill'] = '#0000ff'
                 svgStyle['fill'] = '#00FFFF'
                 # Chemin ou se trouvent les styles
-                print os.path.join(os.path.dirname(__file__) + str('/../styles/'),  str(svg) +'_'+ str(couleur) + '.svg')
+                # print os.path.join(os.path.dirname(__file__) + str('/../styles/'),  str(svg) +'_'+ str(couleur) + '.svg')
                 filename = os.path.join(os.path.dirname(__file__) + str('/../styles/'),  str(svg) +'_'+ str(couleur) + '.svg')
                 svgStyle['name'] = filename
                 svgStyle['outline'] = '#000000'
