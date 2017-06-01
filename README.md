@@ -98,7 +98,7 @@ Ce guide d’installation pour système d’exploitation Windows liste les différente
 1) Télécharger le plug-in à l’adresse Github suivante : https://github.com/ANRChoucas/PluginChoucas/archive/master.zip
 2) Dé-zipper le fichier et le renommer afin d’obtenir le dossier « PluginChoucas »
 3) Copier le dossier et coller au chemin suivant :
-     C:\Users\username\.qgis2\python\plugins
+     C:&#92;Users&#92;username&#92;.qgis2&#92;python&#92;plugins
 4) Lancer Qgis, dans l’onglet « Extension » / « «Installer/Gérer les extensions ». La fenêtre ci-dessous s’ouvre.
 
 ![Afficher les extensions expérimentales](https://github.com/ANRChoucas/PluginChoucas/tree/master/doc/Install_01.png)
