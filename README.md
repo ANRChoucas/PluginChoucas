@@ -90,7 +90,7 @@ La solution envisageable que nous n’avons pas eu le temps d’implémenter serait d
 
 Toutefois, dans l’état actuel du code python, l’ajout d’une nouvelle source de données au catalogue est possible. Il faut suivre le schéma des sources de données déjà complétées dans le catalogue, en indiquant le nom de chacun des attributs spécifique à la source ainsi qu’au différents types de données (type : points ou lignes etc…).
 
-![Description des blocs du catalogue](https://github.com/ANRChoucas/PluginChoucas/tree/master/doc/Catalogue.png)
+[![](https://github.com/ANRChoucas/PluginChoucas/tree/master/doc/Catalogue.png)]
 
 
 Installation
