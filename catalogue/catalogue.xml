@@ -214,9 +214,10 @@
 			<url>http://rando.vanoise.com/data/api/fr/treks.geojson</url>
 		</type>
 	</source>
+	<!--
 	<source name="rando.ecrins-parcnational.fr">
 		<bbox>2</bbox>
-		<couleur>purple</couleur>
+		<couleur>pink</couleur>
 		<projection>epsg:4326</projection>
 		<type data-id="treks">
 			<id>id</id>
@@ -229,4 +230,5 @@
 			<url>http://rando.ecrins-parcnational.fr/fr/files/api/trek/trek.geojson</url>
 		</type>
 	</source>
+	-->
 </data>

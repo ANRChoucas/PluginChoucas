@@ -35,7 +35,7 @@ from qgis.core import QgsVectorLayer
 from qgis.core import QgsSvgMarkerSymbolLayerV2
 from qgis.core import QgsMapLayerRegistry
 from qgis.core import QgsPoint, QgsGeometry, QgsFeature, QgsField
-from PyQt4.QtGui import QgsMarkerSymbolV2
+from qgis.core import QgsMarkerSymbolV2
 from PyQt4.QtCore import QVariant
 
 import os
@@ -98,7 +98,7 @@ def online(root, list_dept, dept, source, type_pt, list_bbox, list_admin_area):
         geom = util.get_second_object(root, source,type_pt,'geom')
         # creation couche
         mem = geom+'?crs='+projection
-        newLayer = QgsVectorLayer(mem, type_pt+'_'+source, "memory")
+        newLayer = QgsVectorLayer(mem, type_pt + '_' + source, "memory")
         # on recupere le fournisseur
         pr = newLayer.dataProvider()
 
@@ -171,7 +171,7 @@ def online(root, list_dept, dept, source, type_pt, list_bbox, list_admin_area):
 
         elif geom == 'LineString':
             # Donnees relatives a l element (attributs)
-            id_s = util.get_second_object(root, source,type_pt,'id')
+            id_s = util.get_second_object(root, source, type_pt, 'id')
 
             # TODO: a rendre plus generique !
             nom_s = util.get_second_object(root, source,type_pt,'nom')
@@ -204,7 +204,7 @@ def online(root, list_dept, dept, source, type_pt, list_bbox, list_admin_area):
                     start_point = QgsPoint(float(point['geometry']['coordinates'][0][0]), float(point['geometry']['coordinates'][0][1]))
                     point_s = QgsPoint(float(point['geometry']['coordinates'][1][0]), float(point['geometry']['coordinates'][1][1]))
                     # On les relie
-                    gLine = QgsGeometry.fromPolyline([start_point,point_s])
+                    gLine = QgsGeometry.fromPolyline([start_point, point_s])
                     ptfeature.setGeometry(gLine)
                     # On ajoutes tous les autres points de la linestring
                     for i in range(1,n):
