@@ -1,0 +1,42 @@
+
+http://ws.carmencarto.fr/WFS/119/fxx_inpn?REQUEST=GetCapabilities
+
+
+http://ws.carmencarto.fr/WFS/119/fxx_inpn?REQUEST=DescribeFeatureType&typename=Parcs_nationaux
+
+
+http://ws.carmencarto.fr/WFS/119/fxx_inpn?REQUEST=GetFeature&typename=Parcs_nationaux
+Cévennes, Vanoise, Ecrins, Mercantour
+http://ws.carmencarto.fr/WFS/119/fxx_inpn?REQUEST=GetFeature&typename=Parcs_nationaux&Filter=<Filter><PropertyIsEqualTo><PropertyName>Nom</PropertyName><Literal>Vanoise</Literal></PropertyIsEqualTo></Filter>
+
+
+http://ws.carmencarto.fr/WMS/119/fxx_inpn?service=wms&request=GetMap&Layers=Parcs_nationaux&SRS=EPSG:27582&BBOX=47538.8,1622620,1181640,2677640&WIDTH=1000&HEIGHT=1000&FORMAT=image/png
+
+
+-----
+
+
+http://ws.carmencarto.fr/WFS/119/fxx_inpn?REQUEST=DescribeFeatureType&typename=Parcs_naturels_regionaux
+
+
+http://ws.carmencarto.fr/WFS/119/fxx_inpn?REQUEST=GetFeature&typename=Parcs_naturels_regionaux
+Chartreuse, Massif des Bauges, Vercors, 
+Queyras, Verdon
+
+
+
+---- 
+
+Département
+
+
+
+        
+
+
+    
+
+
+        
+
+

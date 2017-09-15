@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<data>
+	<source name="osm">
+		<emprise>bbox</emprise>
+		<flux>SCRIPT</flux>
+		<couleur>purple</couleur>
+		<projection>epsg:4326</projection>
+		<type data-id="refuges">
+			<geom>Point</geom>
+			<filtre type='node' cle='tourism' valeur='alpine_hut' />
+			<filtre type='node' cle='tourism' valeur='wilderness_hut' />
+			<filtre type='node' cle='amenity' valeur='shelter' />
+			<!-- <filtre cle='shelter_type' valeur='rock_shelter' /> -->
+			<forme>square</forme>
+			<svg>home_full</svg>
+			<size>3</size>
+			<url>http://overpass-api.de/api/interpreter?</url>
+			<attribut name='mattress' type='string'>mattress</attribut>
+			<attribut name='heating' type='string'>heating</attribut>
+			<attribut name='cle' type='string'>tourism</attribut>
+			<attribut name='nom' type='string'>name</attribut>
+			<attribut name='alt' type='string'>ele</attribut>
+			<attribut name='tourism' type='string'>tourism</attribut>
+			<attribut name='amenity' type='string'>amenity</attribut>
+			<attribut name='access' type='string'>access</attribut>
+			<attribut name='operator' type='string'>operator</attribut>
+			<attribut name='idC2c' type='string'>c2c:id</attribut>
+		</type>
+		<type data-id="information">
+			<geom>Point</geom>
+			<filtre type='node' cle='information' valeur='guidepost' />
+			<filtre type='node' cle='information' valeur='map' />
+			<filtre type='node' cle='information' valeur='board' />
+			<forme>circle</forme>
+			<svg>map_mark</svg>
+			<size>3</size>
+			<url>http://overpass-api.de/api/interpreter?</url>
+			<attribut name='nom' type='string'>name</attribut>
+			<attribut name='alt' type='string'>ele</attribut>
+			<attribut name='information' type='string'>information</attribut>
+			<attribut name='amenity' type='string'>amenity</attribut>
+		</type>
+		<type data-id="parkings">
+			<geom>Point</geom>
+			<filtre type='node' cle='amenity' valeur='parking' />
+			<forme>circle</forme>
+			<svg>parking</svg>
+			<size>3</size>
+			<url>http://overpass-api.de/api/interpreter?</url>
+			<attribut name='nom' type='string'>name</attribut>
+			<attribut name='alt' type='string'>ele</attribut>
+			<attribut name='amenity' type='string'>amenity</attribut>
+		</type>
+		<type data-id="bancs">
+			<geom>Point</geom>
+			<filtre type='node' cle='amenity' valeur='bench' />
+			<forme>circle</forme>
+			<size>2</size>
+			<svg></svg>
+			<url>http://overpass-api.de/api/interpreter?</url>
+			<attribut name='nom' type='string'>name</attribut>
+			<attribut name='alt' type='string'>ele</attribut>
+			<attribut name='amenity' type='string'>amenity</attribut>
+		</type>
+	</source>
+	<source name="refuges.info">
+		<emprise>bbox</emprise>
+		<flux>API</flux>
+		<couleur>blue</couleur>
+		<projection>epsg:4326</projection>
+		<type data-id="refuges">
+			<geom>Point</geom>
+			<forme>square</forme>
+			<svg>home_full</svg>
+			<size>3</size>
+			<url>https://www.refuges.info/api/bbox?type_points=refuge</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,coord,alt</attribut>
+			<attribut name='type' type='string'>properties,type,valeur</attribut>
+			<attribut name='etat' type='string'>properties,etat,id</attribut>
+			<attribut name='derniere_modif' type='string'>properties,date,derniere_modif</attribut>
+			<attribut name='sym' type='string'>properties,sym</attribut>
+		</type>
+		<type data-id="sommets">
+			<geom>Point</geom>
+			<forme>triangle</forme>
+			<svg>mountain</svg>
+			<size>3</size>
+			<url>https://www.refuges.info/api/bbox?type_points=sommet</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,coord,alt</attribut>
+			<attribut name='type' type='string'>properties,type,valeur</attribut>
+			<attribut name='etat' type='string'>properties,etat,id</attribut>
+			<attribut name='derniere_modif' type='string'>properties,date,derniere_modif</attribut>
+			<attribut name='sym' type='string'>properties,sym</attribut>
+		</type>
+		<type data-id="points d eau">
+			<geom>Point</geom>
+			<forme>circle</forme>
+			<svg>circular_shape</svg>
+			<size>2</size>
+			<url>https://www.refuges.info/api/bbox?type_points=pt_eau</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,coord,alt</attribut>
+			<attribut name='type' type='string'>properties,type,valeur</attribut>
+			<attribut name='etat' type='string'>properties,etat,id</attribut>
+			<attribut name='derniere_modif' type='string'>properties,date,derniere_modif</attribut>
+			<attribut name='sym' type='string'>properties,sym</attribut>
+		</type>
+		<type data-id="points de passage">
+			<geom>Point</geom>
+			<forme>circle</forme>
+			<svg>map_mark</svg>
+			<size>2</size>
+			<url>https://www.refuges.info/api/bbox?type_points=pt_passage</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,coord,alt</attribut>
+			<attribut name='type' type='string'>properties,type,valeur</attribut>
+			<attribut name='etat' type='string'>properties,etat,id</attribut>
+			<attribut name='derniere_modif' type='string'>properties,date,derniere_modif</attribut>
+			<attribut name='sym' type='string'>properties,sym</attribut>
+		</type>
+		<type data-id="lacs">
+			<geom>Point</geom>
+			<forme>circle</forme>
+			<svg>sea</svg>
+			<size>2</size>
+			<url>https://www.refuges.info/api/bbox?type_points=lac</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,coord,alt</attribut>
+			<attribut name='type' type='string'>properties,type,valeur</attribut>
+			<attribut name='etat' type='string'>properties,etat,id</attribut>
+			<attribut name='derniere_modif' type='string'>properties,date,derniere_modif</attribut>
+			<attribut name='sym' type='string'>properties,sym</attribut>
+		</type>
+	</source>
+	<source name="camptocamp">
+		<emprise>bbox</emprise>
+		<flux>API</flux>
+		<couleur>orange</couleur>
+		<projection>epsg:3857</projection>
+		<type data-id="refuges">
+			<geom>Point</geom>
+			<forme>square</forme>
+			<svg>home_full</svg>
+			<size>3</size>
+			<url>https://api.camptocamp.org/waypoints?limit=30&amp;wtyp=gite,hut,shelter</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,altitude</attribut>
+			<attribut name='type' type='string'>properties,type</attribut>
+			<attribut name='qualite' type='string'>properties,qualite</attribut>
+		</type>
+		<type data-id="sommets">
+			<geom>Point</geom>
+			<forme>triangle</forme>
+			<svg>mountain</svg>
+			<size>3</size>
+			<url>https://api.camptocamp.org/waypoints?wtyp=summit</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,altitude</attribut>
+			<attribut name='type' type='string'>properties,type</attribut>
+			<attribut name='qualite' type='string'>properties,qualite</attribut>
+		</type>
+		<type data-id="points d eau">
+			<geom>Point</geom>
+			<forme>circle</forme>
+			<svg>circular_shape</svg>
+			<size>2</size>
+			<url>https://api.camptocamp.org/waypoints?wtyp=lake,waterfall,waterpoint</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,altitude</attribut>
+			<attribut name='type' type='string'>properties,type</attribut>
+			<attribut name='qualite' type='string'>properties,qualite</attribut>
+		</type>
+		<type data-id="grottes">
+			<geom>Point</geom>
+			<forme>circle</forme>
+			<svg>cave</svg>
+			<size>3</size>
+		    <url>https://api.camptocamp.org/waypoints?wtyp=cave</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,altitude</attribut>
+			<attribut name='type' type='string'>properties,type</attribut>
+			<attribut name='qualite' type='string'>properties,qualite</attribut>
+		</type>
+		<type data-id="cols">
+			<geom>Point</geom>
+			<forme>triangle</forme>
+			<svg>pass</svg>
+			<size>3</size>
+		    <url>https://api.camptocamp.org/waypoints?wtyp=pass</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,altitude</attribut>
+			<attribut name='type' type='string'>properties,type</attribut>
+			<attribut name='qualite' type='string'>properties,qualite</attribut>
+		</type>
+		<type data-id="lieux-dits">
+			<id>id</id>
+			<geom>Point</geom>
+			<forme>circle</forme>
+			<svg>houses</svg>
+			<size>3</size>
+			<url>https://api.camptocamp.org/waypoints?wtyp=locality</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,altitude</attribut>
+			<attribut name='type' type='string'>properties,type</attribut>
+			<attribut name='qualite' type='string'>properties,qualite</attribut>
+		</type>
+		<type data-id="itineraire">
+			<id>id</id>
+			<geom>LineString</geom>
+			<forme></forme>
+			<svg></svg>
+			<size>0.3</size>
+			<!-- act=hiking -->
+			<url>https://api.camptocamp.org/routes?limit=30</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='hiking_rating' type='string'>properties,hiking_rating</attribut>
+			<attribut name='altitude_max' type='string'>properties,altitude_max</attribut>
+			<attribut name='height_diff_up' type='string'>properties,height_diff_up</attribut>
+			<attribut name='quality' type='string'>properties,quality</attribut>
+			<!-- <attribut name='description' type='string'>properties,description</attribut> -->
+		</type>
+	</source>
+	<source name="rando.vanoise.fr">
+		<emprise>none</emprise>
+		<flux>API</flux>
+		<couleur>purple</couleur>
+		<projection>epsg:4326</projection>
+		<type data-id="pois">
+			<id>id</id>
+			<geom>Point</geom>
+			<forme>diamond</forme>
+			<svg>none</svg>
+			<size>6</size>
+			<url>http://rando.vanoise.com/data/api/fr/pois.geojson</url>
+			<attribut name='id' type='string'>id</attribut>
+			<attribut name='nom' type='string'>properties,name</attribut>
+			<attribut name='min_elevation' type='string'>properties,min_elevation</attribut>
+			<attribut name='max_elevation' type='string'>properties,max_elevation</attribut>
+			<attribut name='label' type='string'>properties,type,label</attribut>
+		</type>
+		<type data-id="treks">
+			<id>id</id>
+			<geom>LineString</geom>
+			<forme></forme>
+			<svg></svg>
+			<size>0.4</size>
+			<url>http://rando.vanoise.com/data/api/fr/treks.geojson</url>
+			<attribut name='id' type='string'>id</attribut>
+			<attribut name='nom' type='string'>properties,name</attribut>
+			<attribut name='depart' type='string'>properties,departure</attribut>
+			<attribut name='arrivee' type='string'>properties,arrival</attribut>
+			<attribut name='duree' type='string'>properties,duration</attribut>
+			<attribut name='duree_desc' type='string'>properties,duration_pretty</attribut>
+			<attribut name='difficulte' type='string'>properties,difficulty,label</attribut>
+		</type>
+	</source>
+	
+	<!--
+	<source name="rando.parc-du-vercors.fr">
+		<emprise>none</emprise>
+		<flux>API</flux>
+		<couleur>grey</couleur>
+		<projection>epsg:4326</projection>
+		<type data-id="pois">
+			<id>id</id>
+			<geom>Point</geom>
+			<forme>diamond</forme>
+			<svg>none</svg>
+			<size>6</size>
+			<url>http://rando.parc-du-vercors.fr/data/api/fr/treks.geojson</url>
+			
+		</type>
+		<type data-id="itinéraire à pied">
+			<id>id</id>
+			<geom>LineString</geom>
+			<forme></forme>
+			<svg></svg>
+			<size></size>
+			<url>http://rando.parc-du-vercors.fr/data/api/fr/treks.geojson</url>
+		</type>
+		<type data-id="itinéraire à vtt">
+			<id>id</id>
+			<geom>LineString</geom>
+			<forme></forme>
+			<svg></svg>
+			<size></size>
+			<url>http://rando.parc-du-vercors.fr/data/api/fr/treks.geojson</url>
+		</type>
+	</source>
+	-->
+	
+	<!--
+	<source name="rando.ecrins-parcnational.fr">
+		<bbox>2</bbox>
+		<couleur>pink</couleur>
+		<projection>epsg:4326</projection>
+		<type data-id="treks">
+			<id>id</id>
+			<nom>departure</nom>
+			<description>description</description>
+			<geom>LineString</geom>
+			<forme></forme>
+			<svg></svg>
+			<size></size>
+			<url>http://rando.ecrins-parcnational.fr/fr/files/api/trek/trek.geojson</url>
+		</type>
+	</source>
+	-->
+</data>

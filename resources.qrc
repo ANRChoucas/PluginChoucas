@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/plugins/PluginChoucas" >
-        <file>img/loaddata.png</file>
-        <file>catalogue.xml</file>
-        <file>catalogue_hl.xml</file>
-    </qresource>
-</RCC>

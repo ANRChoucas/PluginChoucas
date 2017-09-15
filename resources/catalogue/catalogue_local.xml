@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<data>
+	<source name="ign73">
+		<emprise>bbox</emprise>
+		<couleur>green</couleur>
+		<projection>epsg:2154</projection>
+		<type data-id="refuges">
+			<id>id</id>
+			<geom>Point</geom>
+			<forme>square</forme>
+			<svg>home_full</svg>
+			<size>3</size>
+			<url>data/ign/refuges_IGN.shp</url>
+		</type>
+	</source>
+</data>

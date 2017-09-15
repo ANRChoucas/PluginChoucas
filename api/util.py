@@ -26,7 +26,7 @@
 """
 
 # =============================================================================
-#   Fonctions utilies :
+#   Fonctions utiles :
 #  - gestion des listes déroulantes
 #  - connection aux apis
 #  - ...
@@ -67,8 +67,40 @@ def get_second_object(root, source, data, objet):
                     result = dat.find(str(objet)).text
     return result
     
+
+def get_attributs(root, nomSourceSelect, entite):
+    """
+        Retourne les attributs d'un type de données décrit dans le catalogue
+    """
+    attributs = {}
+    for source in root:
+        name = source.get('name')
+        if str(name) == str(nomSourceSelect):
+            for layer in source.iter('type'):
+                if layer.get('data-id') == str(entite):
+                    # result = dat.find(str(objet)).text
+                    for attribut in layer.iter('attribut'):
+                        attributs[attribut.get('name')] = {}
+                        attributs[attribut.get('name')]['type'] = attribut.get('type')
+                        attributs[attribut.get('name')]['chemin'] = attribut.text 
+    return attributs
     
+def getFiltres(root, nomSourceSelect, entite):
+    """
+        Retourne les filtres d'un type de données décrit dans le catalogue
+    """
+    filtres = {}
+    for source in root:
+        name = source.get('name')
+        if str(name) == str(nomSourceSelect):
+            for layer in source.iter('type'):
+                if layer.get('data-id') == str(entite):
+                    # result = dat.find(str(objet)).text
+                    for filtre in layer.iter('filtre'):
+                        filtres[filtre.get('cle') + '#' + filtre.get('valeur')] = filtre.get('type')
+    return filtres
     
+
 
 def chargeProxy(b):
     """
@@ -93,6 +125,7 @@ def open_url(url):
         Fonction qui utilise la librairie urllib2 (Python 2.7) pour faire des requete HTTP
         url : url a interroger pour la requete
     """
+    # print(url)
     request = urllib2.Request(url)
     response = urllib2.urlopen(request)
     data = json.load(response)

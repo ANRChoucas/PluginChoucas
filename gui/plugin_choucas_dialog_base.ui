@@ -6,59 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>533</width>
-    <height>424</height>
+    <width>446</width>
+    <height>372</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>CHOUCAS</string>
   </property>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>260</y>
-     <width>101</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Entités à afficher</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>220</y>
-     <width>111</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Origine des entités</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox_entities">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>270</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox_sources">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>220</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QGroupBox" name="groupBox">
    <property name="enabled">
     <bool>true</bool>
@@ -66,22 +20,22 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>20</y>
-     <width>471</width>
-     <height>161</height>
+     <y>38</y>
+     <width>421</width>
+     <height>91</height>
     </rect>
    </property>
    <property name="title">
-    <string>Mode</string>
+    <string>Mode de connexion</string>
    </property>
    <property name="checkable">
     <bool>false</bool>
    </property>
-   <widget class="QRadioButton" name="radioButton_online">
+   <widget class="QRadioButton" name="rb_online">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>80</y>
+      <y>60</y>
       <width>117</width>
       <height>22</height>
      </rect>
@@ -89,12 +43,15 @@
     <property name="text">
      <string>En ligne</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_offline">
+   <widget class="QRadioButton" name="rb_offline">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>30</y>
+      <y>20</y>
       <width>117</width>
       <height>22</height>
      </rect>
@@ -103,11 +60,11 @@
      <string>Hors ligne</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_proxy">
+   <widget class="QCheckBox" name="cb_proxy">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>120</y>
+      <x>100</x>
+      <y>60</y>
       <width>99</width>
       <height>22</height>
      </rect>
@@ -115,36 +72,65 @@
     <property name="text">
      <string>Proxy IGN</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QRadioButton" name="rb_local">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>70</y>
-      <width>171</width>
-      <height>41</height>
+      <x>20</x>
+      <y>40</y>
+      <width>117</width>
+      <height>22</height>
      </rect>
     </property>
     <property name="text">
-     <string>Département à afficher</string>
+     <string>Local</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_dept">
+   <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>70</y>
-      <width>181</width>
-      <height>31</height>
+      <x>100</x>
+      <y>22</y>
+      <width>101</width>
+      <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <italic>true</italic>
+     </font>
+    </property>
+    <property name="text">
+     <string>(base de données)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>40</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <italic>true</italic>
+     </font>
+    </property>
+    <property name="text">
+     <string>(shapefile)</string>
     </property>
    </widget>
   </widget>
-  <widget class="QPushButton" name="pushButton_add">
+  <widget class="QPushButton" name="boutonAdd">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>380</y>
+     <x>210</x>
+     <y>330</y>
      <width>99</width>
      <height>27</height>
     </rect>
@@ -153,37 +139,24 @@
     <string>Ajouter</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>190</y>
-     <width>111</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Données à charger :</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>320</y>
-     <width>111</width>
+     <y>10</y>
+     <width>81</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Fond de carte :</string>
+    <string>Fond carto :</string>
    </property>
   </widget>
   <widget class="QCheckBox" name="cb_fondcarte">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>340</y>
+     <x>120</x>
+     <y>10</y>
      <width>171</width>
      <height>17</height>
     </rect>
@@ -192,18 +165,143 @@
     <string>France métropolitaine</string>
    </property>
    <property name="checked">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
-  <zorder>groupBox</zorder>
-  <zorder>label</zorder>
-  <zorder>label_2</zorder>
-  <zorder>comboBox_entities</zorder>
-  <zorder>comboBox_sources</zorder>
-  <zorder>pushButton_add</zorder>
-  <zorder>label_4</zorder>
-  <zorder>label_5</zorder>
-  <zorder>cb_fondcarte</zorder>
+  <widget class="QPushButton" name="boutonClose">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>330</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Fermer</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>140</y>
+     <width>421</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Données à charger</string>
+   </property>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>110</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Emprise à prendre :</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboEntities">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>70</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboSources">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>30</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>60</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Entités à afficher :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Origine des entités :</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboEmprise">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>120</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="editable">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>140</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <italic>true</italic>
+     </font>
+    </property>
+    <property name="text">
+     <string>(suivant la bbox)</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cb_emprise_affiche">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>128</y>
+      <width>70</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <italic>true</italic>
+     </font>
+    </property>
+    <property name="text">
+     <string>à afficher</string>
+    </property>
+   </widget>
+  </widget>
  </widget>
  <resources/>
  <connections/>
