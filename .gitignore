@@ -1,3 +1,6 @@
 /*.pyc
 /gui/*.pyc
 /data/*.pyc
+/api/*.pyc
+*.pyc
+/resources/data/ign
