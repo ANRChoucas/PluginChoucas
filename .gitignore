@@ -4,3 +4,4 @@
 /api/*.pyc
 *.pyc
 /resources/data/ign
+/resources/*.pyc

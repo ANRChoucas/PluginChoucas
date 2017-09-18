@@ -129,14 +129,14 @@ def loadOSM(nomLayer, card, filtres, attributs, style):
         pr1.addAttributes(attributeList)
                    
         vl1.updateFields()
-    
-    
+        
         for node in allnodes:
             lat = node.get('lat')
             lon = node.get('lon')
             nodeid = node.get('id')
             
             valAttr = {}
+            isFeature = False
             for attr in attributs:
                 valAttr[attr] = ""
             for tag in node.findall('tag'):
@@ -144,8 +144,12 @@ def loadOSM(nomLayer, card, filtres, attributs, style):
                     if attributs[attr]['chemin'] == tag.get('k'):
                         # print (attributs[attr]['chemin'] + "#" + tag.get('k'))
                         valAttr[attr] = tag.get('v')
+                for cleval in filtres:
+                    cle = cleval.split('#')[0]
+                    if cle == tag.get('k'):
+                        isFeature = True
                 
-            for tag in node.findall('tag'):
+            if isFeature:
                 ptfeature1 = QgsFeature()
                     
                 point1 = QgsPoint(float(lon), float(lat))
