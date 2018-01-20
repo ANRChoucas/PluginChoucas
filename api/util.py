@@ -82,6 +82,7 @@ def get_attributs(root, nomSourceSelect, entite):
                     for attribut in layer.iter('attribut'):
                         attributs[attribut.get('name')] = {}
                         attributs[attribut.get('name')]['type'] = attribut.get('type')
+                        attributs[attribut.get('name')]['name'] = attribut.get('name')
                         attributs[attribut.get('name')]['chemin'] = attribut.text 
     return attributs
     

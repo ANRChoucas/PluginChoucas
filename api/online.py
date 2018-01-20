@@ -38,6 +38,7 @@ from qgis.core import QgsPoint, QgsGeometry, QgsFeature, QgsField
 from qgis.core import QgsMarkerSymbolV2
 from PyQt4.QtCore import QVariant
 
+from HTMLParser import HTMLParser
 import os
 
 import util
@@ -159,7 +160,8 @@ def buildLayerPoint(data, newLayer, attributs):
                 #print(chemin + '---' + str(point['properties']['qualite']))
                 attrFeature.append(point[tabchemin[0]])
             elif len(tabchemin) == 2:
-                attrFeature.append(point[tabchemin[0]][tabchemin[1]])
+                attVal = point[tabchemin[0]][tabchemin[1]]
+                attrFeature.append(attVal)
             elif len(tabchemin) == 3:
                 attrFeature.append(point[tabchemin[0]][tabchemin[1]][tabchemin[2]])
         # On ajoute les attributs au feature
@@ -272,7 +274,13 @@ def buildLayerLigne(data, newLayer, attributs):
                             #print(chemin + '---' + str(point['properties']['qualite']))
                             attrFeature.append(point[tabchemin[0]])
                         elif len(tabchemin) == 2:
-                            attrFeature.append(point[tabchemin[0]][tabchemin[1]])
+                            attVal = point[tabchemin[0]][tabchemin[1]]
+                            if attVal != None and attVal != '':
+                                if attributs[attr]['name'] == 'description':
+                                    h = HTMLParser()
+                                    attVal = h.unescape(attVal)
+                            attrFeature.append(attVal)
+                            # attrFeature.append(point[tabchemin[0]][tabchemin[1]])
                         elif len(tabchemin) == 3:
                             attrFeature.append(point[tabchemin[0]][tabchemin[1]][tabchemin[2]])
                     ptfeature.setAttributes(attrFeature)

@@ -19,7 +19,7 @@ def loadItineraireVercors():
     url = 'http://rando.parc-du-vercors.fr/data/api/fr/treks.geojson'
     request = urllib2.Request(url)
     response = urllib2.urlopen(request)
-    print response.url
+    print (response.url)
            
     data = json.load(response)
     #print data['generator']

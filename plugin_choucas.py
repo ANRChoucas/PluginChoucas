@@ -24,11 +24,11 @@
  *                                                                         *
  ***************************************************************************/
 """
-from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication 
+from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication, Qt 
 # from PyQt4.QtCore import QFile, QFileInfo
 from PyQt4.QtGui import QAction, QIcon
 # from PyQt4.QtGui import QMessageBox
-from qgis.core import QgsVectorLayer
+from qgis.core import QgsVectorLayer, QgsMapLayer
 from qgis.core import QgsMapLayerRegistry
 
 # Initialize Qt resources from file resources.py
@@ -36,6 +36,8 @@ from resources import resources
 
 # Import the code for the dialog
 from gui.plugin_choucas_dialog import PluginChoucasDialog
+from gui.recherche_motcle_dialog import RechercheMotcleDialog
+from gui.afficher_description_dialog import AfficherDescriptionDialog
 
 import os.path
 import xml.etree.ElementTree as ET
@@ -87,6 +89,15 @@ class PluginChoucas:
 
         self.pluginIsActive = False
         self.dlg = None
+        
+        #self.plugin2IsActive = False
+        #self.dockwidget = None
+        
+        self.pluginMotCleIsActive = False
+        self.dlgMotCle = None
+        
+        self.pluginDescriptionIsActive = False
+        self.dlgDesc = None
         
     # noinspection PyMethodMayBeStatic
     def tr(self, message):
@@ -154,6 +165,19 @@ class PluginChoucas:
             callback=self.run,
             parent=self.iface.mainWindow())
         
+        icon_path = ':/plugins/PluginChoucas/img/loupe.png'
+        self.add_action(
+            icon_path,
+            text=self.tr(u'Recherche par mots sur clé'),
+            callback=self.search,
+            parent=self.iface.mainWindow())
+        
+        #icon_path = ':/plugins/PluginChoucas/img/landmark.png'
+        #self.add_action(
+        #    icon_path,
+        #    text=self.tr(u'Afficher la description de l itinéraire'),
+        #    callback=self.displayDescription,
+        #    parent=self.iface.mainWindow())
 
     def unload(self):
         """Removes the plugin menu item and icon from QGIS GUI."""
@@ -173,6 +197,11 @@ class PluginChoucas:
 
         self.pluginIsActive = False
         self.dlg.close()
+        
+        self.plugin2IsActive = False
+        
+        # disconnects
+        #self.dlg.closingPlugin.disconnect(self.onClosePlugin)
 
 
     # Quand on appuie sur le bouton "Chargement" de la barre de menu
@@ -422,3 +451,109 @@ class PluginChoucas:
             # On prend tous les attribts quand c'est un fichier
             local.loadPoint(nomLayer, urlBrute, urlQGis, card, style)
             
+
+    def onCloseMotClePlugin(self):
+        """Cleanup necessary items here when plugin dlgMotCle is closed"""
+
+        # disconnects
+        #self.dlgMotCle.closingPlugin.disconnect(self.onCloseMotClePlugin)
+        #self.pluginMotCleIsActive = False
+        
+        self.pluginMotCleIsActive = False
+        self.dlgMotCle.close()
+
+    def search(self):
+        
+        # print ("search")
+        
+        if not self.pluginMotCleIsActive:
+            self.pluginMotCleIsActive = True       
+       
+            if self.dlgMotCle == None:
+                self.dlgMotCle = RechercheMotcleDialog()
+                
+                # On peut charger les layers
+                self.dlgMotCle.comboLayer.addItem("---")
+                self.dlgMotCle.comboAttribut.addItem("---")
+                
+                layers = QgsMapLayerRegistry.instance().mapLayers().values()
+                for layer in layers:
+                    if layer.type() == QgsMapLayer.VectorLayer:
+                        self.dlgMotCle.comboLayer.addItem(layer.name())
+
+                # On connecte les listes déroulantes 
+                self.dlgMotCle.comboLayer.currentIndexChanged.connect(self.fillAttr)
+                
+                # On connecte les boutons
+                self.dlgMotCle.boutonCalculer.clicked.connect(self.doFiltre)
+                self.dlgMotCle.boutonQuitter.clicked.connect(self.onCloseMotClePlugin)
+                self.dlgMotCle.boutonRAZ.clicked.connect(self.razMotCle)
+                
+        #self.dlgMotCle.closingPlugin.connect(self.onCloseMotClePlugin)
+       
+        # show the dlgMotCle
+        # TODO: fix to allow choice of dock location
+        self.iface.addDockWidget(Qt.RightDockWidgetArea, self.dlgMotCle)
+        self.dlgMotCle.show()
+        
+        
+    def fillAttr(self):
+        self.dlgMotCle.comboAttribut.clear()
+        
+        nomLayer =  self.dlgMotCle.comboLayer.currentText()
+        
+        layers = QgsMapLayerRegistry.instance().mapLayers().values()
+        for layer in layers:
+            nomAttributs = list()
+            for field in layer.pendingFields():
+                nomAttributs.append(field.name())
+            nomAttributs.sort()
+            # On remplit les listes correspondantes
+            if layer.name() == nomLayer:
+                for k in range (0, len (nomAttributs)):
+                    # TODO : ne mettre que les attributs de type STRING
+                    self.dlgMotCle.comboAttribut.addItem(nomAttributs[k])
+    
+    def razMotCle(self):
+        self.dlgMotCle.comboLayer.clear()
+        self.dlgMotCle.comboAttribut.clear()
+        
+        self.dlgMotCle.comboLayer.addItem("---")
+        self.dlgMotCle.comboAttribut.addItem("---")
+        
+        layers = QgsMapLayerRegistry.instance().mapLayers().values()
+        for layer in layers:
+            if layer.type() == QgsMapLayer.VectorLayer:
+                self.dlgMotCle.comboLayer.addItem(layer.name())
+        
+    def doFiltre(self):
+        
+        # On récupère : layer + attribut + mot clé
+        nomLayer =  self.dlgMotCle.comboLayer.currentText()
+        nomAttribut = self.dlgMotCle.comboAttribut.currentText()
+        motCle = self.dlgMotCle.editMotCle.text()
+        
+        if nomLayer != '---' and nomAttribut != '---' and motCle != None and motCle != "":
+            
+            # On recupere le layer
+            layers = QgsMapLayerRegistry.instance().mapLayers().values()
+            for layer in layers:
+                if layer.name() == nomLayer:
+                    # On filtre
+                    ancienFiltre = layer.subsetString()
+                    if ancienFiltre != None and ancienFiltre != "":
+                        filtreTxt = ancienFiltre + " and " + nomAttribut + " like '%" + motCle + "%' "
+                    else:
+                        filtreTxt = nomAttribut + " like '%" + motCle + "%' "
+                    # print (filtreTxt)
+                    layer.setSubsetString(filtreTxt)
+                    # description like '%balcon%'
+        
+            # On ajoute le mot clé à la liste
+            
+    def displayDescription(self):
+        
+        print ("desc")
+        #pluginDescriptionIsActive
+
+
