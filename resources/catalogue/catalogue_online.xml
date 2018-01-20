@@ -266,6 +266,7 @@
 			<attribut name='duree' type='string'>properties,duration</attribut>
 			<attribut name='duree_desc' type='string'>properties,duration_pretty</attribut>
 			<attribut name='difficulte' type='string'>properties,difficulty,label</attribut>
+			<attribut name='description' type='string'>properties,description</attribut>
 		</type>
 	</source>
 	
@@ -302,22 +303,78 @@
 		</type>
 	</source>
 	-->
-	
-	<!--
+	<source name="rando.parc-du-vercors.fr">
+		<emprise>none</emprise>
+		<flux>API</flux>
+		<couleur>red</couleur>
+		<projection>epsg:4326</projection>
+		<type data-id="treks">
+			<id>id</id>
+			<geom>LineString</geom>
+			<forme></forme>
+			<svg></svg>
+			<size>0.4</size>
+			<url>http://rando.parc-du-vercors.fr/data/api/fr/treks.geojson</url>
+			<attribut name='id' type='string'>id</attribut>
+			<attribut name='nom' type='string'>properties,name</attribut>
+			<attribut name='depart' type='string'>properties,departure</attribut>
+			<attribut name='arrivee' type='string'>properties,arrival</attribut>
+			<attribut name='duree' type='string'>properties,duration</attribut>
+			<attribut name='duree_desc' type='string'>properties,duration_pretty</attribut>
+			<attribut name='difficulte' type='string'>properties,difficulty,label</attribut>
+			<attribut name='description' type='string'>properties,description</attribut>
+		</type>
+	</source>
 	<source name="rando.ecrins-parcnational.fr">
-		<bbox>2</bbox>
+		<emprise>none</emprise>
+		<flux>API</flux>
 		<couleur>pink</couleur>
 		<projection>epsg:4326</projection>
 		<type data-id="treks">
 			<id>id</id>
-			<nom>departure</nom>
-			<description>description</description>
 			<geom>LineString</geom>
 			<forme></forme>
 			<svg></svg>
-			<size></size>
+			<size>0.4</size>
 			<url>http://rando.ecrins-parcnational.fr/fr/files/api/trek/trek.geojson</url>
+			<attribut name='id' type='string'>id</attribut>
+			<attribut name='nom' type='string'>properties,name</attribut>
+			<attribut name='depart' type='string'>properties,departure</attribut>
+			<attribut name='arrivee' type='string'>properties,arrival</attribut>
+			<attribut name='duree' type='string'>properties,duration</attribut>
+			<attribut name='duree_desc' type='string'>properties,duration_pretty</attribut>
+			<attribut name='difficulte' type='string'>properties,difficulty,label</attribut>
+			<attribut name='description' type='string'>properties,description</attribut>
+		</type>
+		<!--
+		
+			<nom>departure</nom>
+			<description>description</description>
+			
+		
+		-->
+	</source>
+	
+	<source name="rando.marittimemercantour.eu">
+		<emprise>none</emprise>
+		<flux>API</flux>
+		<couleur>blue</couleur>
+		<projection>epsg:4326</projection>
+		<type data-id="treks">
+			<id>id</id>
+			<geom>LineString</geom>
+			<forme></forme>
+			<svg></svg>
+			<size>0.4</size>
+			<url>http://rando.marittimemercantour.eu/data/api/fr/treks.geojson</url>
+			<attribut name='id' type='string'>id</attribut>
+			<attribut name='nom' type='string'>properties,name</attribut>
+			<attribut name='depart' type='string'>properties,departure</attribut>
+			<attribut name='arrivee' type='string'>properties,arrival</attribut>
+			<attribut name='duree' type='string'>properties,duration</attribut>
+			<attribut name='duree_desc' type='string'>properties,duration_pretty</attribut>
+			<attribut name='difficulte' type='string'>properties,difficulty,label</attribut>
+			<attribut name='description' type='string'>properties,description</attribut>
 		</type>
 	</source>
-	-->
 </data>

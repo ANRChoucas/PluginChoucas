@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/plugins/PluginChoucas/" >
         <file>img/loaddata.png</file>
+		<file>img/landmark.png</file>
+		<file>img/loupe.png</file>
 	</qresource>
 </RCC>
