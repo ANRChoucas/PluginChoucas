@@ -204,6 +204,90 @@
 			<attribut name='type' type='string'>properties,type</attribut>
 			<attribut name='qualite' type='string'>properties,qualite</attribut>
 		</type>
+        <type data-id="acces-routier/TC">
+            <id>id</id>
+			<geom>Point</geom>
+			<forme>triangle</forme>
+			<svg>parking</svg>
+			<size>3</size>
+		    <url>https://api.camptocamp.org/waypoints?wtyp=access</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,altitude</attribut>
+			<attribut name='type' type='string'>properties,type</attribut>
+			<attribut name='qualite' type='string'>properties,qualite</attribut>
+		</type>
+        
+         <type data-id="canyons">
+            <id>id</id>
+			<geom>Point</geom>
+			<forme>circle</forme>
+			<svg>map_mark</svg>
+			<size>3</size>
+		    <url>https://api.camptocamp.org/waypoints?wtyp=canyon</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,altitude</attribut>
+			<attribut name='type' type='string'>properties,type</attribut>
+			<attribut name='qualite' type='string'>properties,qualite</attribut>
+		</type>
+        
+        <type data-id="sites d'escalade">
+            <id>id</id>
+			<geom>Point</geom>
+			<forme>circle</forme>
+			<svg>map_mark</svg>
+			<size>3</size>
+		    <url>https://api.camptocamp.org/waypoints?wtyp=climbing_outdoor</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,altitude</attribut>
+			<attribut name='type' type='string'>properties,type</attribut>
+			<attribut name='qualite' type='string'>properties,qualite</attribut>
+		</type>
+        
+        <type data-id="sites decollage/atterrissage parapente">
+            <id>id</id>
+			<geom>Point</geom>
+			<forme>circle</forme>
+			<svg>map_mark</svg>
+			<size>3</size>
+		    <url>https://api.camptocamp.org/waypoints?wtyp=paragliding_takeoff,paragliding_landing</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,altitude</attribut>
+			<attribut name='type' type='string'>properties,type</attribut>
+			<attribut name='qualite' type='string'>properties,qualite</attribut>
+		</type>
+         
+        <type data-id="campings">
+            <id>id</id>
+			<geom>Point</geom>
+			<forme>square</forme>
+			<svg>home_empty</svg>
+			<size>3</size>
+		    <url>https://api.camptocamp.org/waypoints?wtyp=camp_site</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,altitude</attribut>
+			<attribut name='type' type='string'>properties,type</attribut>
+			<attribut name='qualite' type='string'>properties,qualite</attribut>
+		</type>
+        
+         <type data-id="bivouacs">
+            <id>id</id>
+			<geom>Point</geom>
+			<forme>square</forme>
+			<svg>home_empty</svg>
+			<size>3</size>
+		    <url>https://api.camptocamp.org/waypoints?wtyp=bivouac</url>
+			<attribut name='id' type='string'>properties,id</attribut>
+			<attribut name='nom' type='string'>properties,nom</attribut>
+			<attribut name='alt' type='int'>properties,altitude</attribut>
+			<attribut name='type' type='string'>properties,type</attribut>
+			<attribut name='qualite' type='string'>properties,qualite</attribut>
+		</type>
+        
 		<type data-id="lieux-dits">
 			<id>id</id>
 			<geom>Point</geom>
