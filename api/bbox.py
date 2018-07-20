@@ -21,14 +21,16 @@ listEmprise["pn"]["Vanoise"] = "Vanoise"
 listEmprise["dep"] = {}
 # listEmprise["dep"]["01"] = "Ain"
 # listEmprise["dep"]["07"] = "Ardeche"
-# listEmprise["dep"]["26"] = "Drome"
+listEmprise["dep"]["26"] = "Drome"
+listEmprise["dep"]["05"] = "Hautes-Alpes"
 listEmprise["dep"]["38"] = "Isere"
 # listEmprise["dep"]["42"] = "Loire"
 # listEmprise["dep"]["69"] = "Rhone"
 listEmprise["dep"]["73"] = "Savoie"
 listEmprise["dep"]["74"] = "Haute-savoie"
 
-
+listEmprise["massifs"] = {}
+listEmprise["massifs"]["zoneetude"] = "Zone-Etude"
 
 # list_pnr = ['Chartreuse', 'Massif des Bauges, Vercors', 'Queyras', 'Verdon']
 
