@@ -97,8 +97,8 @@ def loadOSM(nomLayer, card, filtres, attributs, style):
     
     # print(dataRequest)
     
-    http = 'http://overpass.osm.rambler.ru/cgi/interpreter?'
-    #http = 'http://overpass-api.de/api/interpreter?'
+    #http = 'http://overpass.osm.rambler.ru/cgi/interpreter?'
+    http = 'http://overpass-api.de/api/interpreter?'
     
     dataRequest = dataRequest.encode('utf8')
     query_string = urllib.urlencode({'data': dataRequest})    
@@ -270,9 +270,9 @@ def loadOSM(nomLayer, card, filtres, attributs, style):
     
     
     # -----------------------------------------------------------------------
-    print ("Nb noeud = " + str(len(allnodes)))
-    print ("Nb ligne = " + str(len(allways)))
-    print ("Nb relation = " + str(len(allrelations)))
+    #print ("Nb noeud = " + str(len(allnodes)))
+    #print ("Nb ligne = " + str(len(allways)))
+    #print ("Nb relation = " + str(len(allrelations)))
     
     
     
