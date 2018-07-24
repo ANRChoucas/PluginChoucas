@@ -46,6 +46,7 @@ import os
 from api import offline as offline
 from api import online as online
 from api import osm as osm
+from api import geotrek as geotrek
 from api import local as local
 from api import util
 from api import bbox
@@ -428,6 +429,10 @@ class PluginChoucas:
                 
                 filtres = util.getFiltres(self.root, self.source, self.entity)
                 osm.loadOSM(nomLayer, card, filtres, attributs, style)
+                
+            if self.source == 'rando.ecrins-parcnational.fr' and typeGeom == 'Point':
+                
+                geotrek.loadPointEcrin(style)
                 
             #    QMessageBox.information(None, "OUPS:", 
             #            'Departement non disponible pour cet API')

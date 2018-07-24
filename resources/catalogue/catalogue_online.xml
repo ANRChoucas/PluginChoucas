@@ -430,6 +430,14 @@
 			<attribut name='difficulte' type='string'>properties,difficulty,label</attribut>
 			<attribut name='description' type='string'>properties,description</attribut>
 		</type>
+		<type data-id="pois">
+			<id>id</id>
+			<geom>Point</geom>
+			<forme>diamond</forme>
+			<svg>none</svg>
+			<size>6</size>
+			<url></url>
+		</type>
 		<!--
 		
 			<nom>departure</nom>

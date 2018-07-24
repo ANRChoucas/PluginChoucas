@@ -6,12 +6,81 @@
 #
 # =============================================================================
 
+from qgis.core import QgsMapLayerRegistry
 from qgis.core import QgsVectorLayer
 from qgis.core import QgsPoint, QgsGeometry, QgsFeature, QgsField
+from qgis.core import QgsSvgMarkerSymbolLayerV2, QgsSymbolV2, QgsMarkerSymbolV2
 from PyQt4.QtCore import QVariant
 
 import urllib2
 import json
+
+
+def loadPointEcrin(style):
+    
+    url = 'http://rando.ecrins-parcnational.fr/fr/files/api/trek/trek.geojson'
+    request = urllib2.Request(url)
+    response = urllib2.urlopen(request)
+    
+    vl = QgsVectorLayer("Point?crs=epsg:4326", "Points Ecrins", "memory")
+    pr = vl.dataProvider()
+           
+    # add fields
+    pr.addAttributes([
+        QgsField("id",  QVariant.Int),
+        QgsField("type",  QVariant.String),
+        QgsField("nom",  QVariant.String),
+        QgsField("altitude",  QVariant.Int)
+    ])
+           
+    vl.updateFields()
+           
+    data = json.load(response)
+    
+    for ligne in data['features']:
+        id = ligne['id']
+        urlPoint = 'http://rando.ecrins-parcnational.fr/fr/files/api/trek/' + str(id) + '/pois.geojson'
+        requestPoint = urllib2.Request(urlPoint)
+        responsePoint = urllib2.urlopen(requestPoint)
+        
+        dataPoint = json.load(responsePoint)
+        for point in dataPoint['features']:
+            
+            # Nouvel objet geo pour la couche
+            ptfeature = QgsFeature()
+            
+            attrFeature = []
+            id = point['id']
+            attrFeature.append(id)
+            type = point['properties']['type']['label']
+            attrFeature.append(type)
+            nom = point['properties']['name']
+            attrFeature.append(nom)
+            ele = point['properties']['elevation']
+            attrFeature.append(ele)
+            ptfeature.setAttributes(attrFeature)
+            
+            # la geometrie du point
+            xPoint = float(point['geometry']['coordinates'][0])
+            yPoint = float(point['geometry']['coordinates'][1])
+            geomPoint = QgsPoint(xPoint, yPoint)
+            pt = QgsGeometry.fromPoint(geomPoint);
+            ptfeature.setGeometry(pt)
+            
+            pr.addFeatures([ptfeature])
+            
+    vl.updateExtents()
+    
+    #  Symbolisation
+    couleur = style['couleur']
+    size = style['size']
+    forme = style['forme']
+    print (forme)
+    
+    symbolLayer = QgsMarkerSymbolV2.createSimple({'name': str(forme), 'color': str(couleur)})
+    vl.rendererV2().setSymbol(symbolLayer)
+        
+    QgsMapLayerRegistry.instance().addMapLayer(vl)
 
 
 def loadItineraireVercors():
