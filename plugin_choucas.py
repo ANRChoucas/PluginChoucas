@@ -430,7 +430,7 @@ class PluginChoucas:
                 filtres = util.getFiltres(self.root, self.source, self.entity)
                 osm.loadOSM(nomLayer, card, filtres, attributs, style)
                 
-            if self.source == 'rando.ecrins-parcnational.fr' and typeGeom == 'Point':
+            elif self.source == 'rando.ecrins-parcnational.fr' and typeGeom == 'Point':
                 
                 geotrek.loadPointEcrin(style)
                 
