@@ -75,7 +75,6 @@ def loadPointEcrin(style):
     couleur = style['couleur']
     size = style['size']
     forme = style['forme']
-    print (forme)
     
     symbolLayer = QgsMarkerSymbolV2.createSimple({'name': str(forme), 'color': str(couleur)})
     vl.rendererV2().setSymbol(symbolLayer)
