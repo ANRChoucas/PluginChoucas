@@ -408,6 +408,19 @@
 			<attribut name='difficulte' type='string'>properties,difficulty,label</attribut>
 			<attribut name='description' type='string'>properties,description</attribut>
 		</type>
+		<type data-id="pois">
+			<id>id</id>
+			<geom>Point</geom>
+			<forme>diamond</forme>
+			<svg>none</svg>
+			<size>3</size>
+			<url>http://rando.parc-du-vercors.fr/data/api/fr/pois.geojson</url>
+			<attribut name="id" type="string">id</attribut>
+			<attribut name="nom" type="string">properties,name</attribut>
+			<attribut name="min_elevation" type="string">properties,min_elevation</attribut>
+			<attribut name="max_elevation" type="string">properties,max_elevation</attribut>
+			<attribut name="label" type="string">properties,type,label</attribut>
+		</type>
 	</source>
 	<source name="rando.ecrins-parcnational.fr">
 		<emprise>none</emprise>
@@ -438,13 +451,6 @@
 			<size>6</size>
 			<url></url>
 		</type>
-		<!--
-		
-			<nom>departure</nom>
-			<description>description</description>
-			
-		
-		-->
 	</source>
 	
 	<source name="rando.marittimemercantour.eu">
