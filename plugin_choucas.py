@@ -30,6 +30,7 @@ from PyQt4.QtGui import QAction, QIcon
 # from PyQt4.QtGui import QMessageBox
 from qgis.core import QgsVectorLayer, QgsMapLayer
 from qgis.core import QgsMapLayerRegistry
+from qgis.core import QgsFillSymbolV2, QgsSingleSymbolRendererV2
 
 # Initialize Qt resources from file resources.py
 from resources import resources
@@ -173,6 +174,14 @@ class PluginChoucas:
             callback=self.search,
             parent=self.iface.mainWindow())
         
+        icon_path = ':/plugins/PluginChoucas/img/EmpriseZoneEtude.png'
+        self.add_action(
+            icon_path,
+            text=self.tr(u'Emprise ZE'),
+            callback=self.loadZoneEtude,
+            parent=self.iface.mainWindow())
+        
+        
         #icon_path = ':/plugins/PluginChoucas/img/landmark.png'
         #self.add_action(
         #    icon_path,
@@ -204,6 +213,19 @@ class PluginChoucas:
         # disconnects
         #self.dlg.closingPlugin.disconnect(self.onClosePlugin)
 
+    def loadZoneEtude(self):
+        
+        # 
+        cheminRelatif = str('/./resources/fond_de_carte/emprise_massifs/')
+        nomFichier = 'massifs_zoneetude.shp'
+        uri = os.path.join(os.path.dirname(__file__) + cheminRelatif, nomFichier)
+        layerLimiteZE = QgsVectorLayer(uri, "Zone etude", "ogr")
+        QgsMapLayerRegistry.instance().addMapLayer(layerLimiteZE)
+
+        # 'style' : 'no', 'color_border' : '137,233,46,125', 'style_border' : 'solid', 
+        props = {'color': '241,241,241', 'size':'0', 'color_border' : '192,192,192'}
+        s = QgsFillSymbolV2.createSimple(props)
+        layerLimiteZE.setRendererV2(QgsSingleSymbolRendererV2(s))
 
     # Quand on appuie sur le bouton "Chargement" de la barre de menu
     def run(self):
