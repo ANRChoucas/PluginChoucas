@@ -315,6 +315,7 @@
 			<attribut name='altitude_max' type='string'>properties,altitude_max</attribut>
 			<attribut name='height_diff_up' type='string'>properties,height_diff_up</attribut>
 			<attribut name='quality' type='string'>properties,quality</attribut>
+			<attribut name='activites' type='array'>properties,activities</attribut>
 			<!-- <attribut name='description' type='string'>properties,description</attribut> -->
 		</type>
 	</source>

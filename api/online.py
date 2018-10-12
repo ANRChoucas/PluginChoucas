@@ -282,7 +282,8 @@ def buildLayerLigne(data, newLayer, attributs):
                             attrFeature.append(attVal)
                             # attrFeature.append(point[tabchemin[0]][tabchemin[1]])
                         elif len(tabchemin) == 3:
-                            attrFeature.append(point[tabchemin[0]][tabchemin[1]][tabchemin[2]])
+                            if point[tabchemin[0]][tabchemin[1]] != None:
+                                attrFeature.append(point[tabchemin[0]][tabchemin[1]][tabchemin[2]])
                     ptfeature.setAttributes(attrFeature)
                     
                     # ajoute l objet au fournisseur
@@ -295,6 +296,6 @@ def buildLayerLigne(data, newLayer, attributs):
         else:
             cptNonAttribue = cptNonAttribue + 1
             
-    print("Nb sans geometrie = " + str(cptNonAttribue))
+    #print("Nb sans geometrie = " + str(cptNonAttribue))
 
                 
